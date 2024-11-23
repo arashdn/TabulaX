@@ -1,0 +1,14 @@
+You are given a set of source and target pairs. Find what is the relationship between the source and target values.
+Format the answer as [type of source] to [type of target]
+
+Examples:
+Data: ("arash@gmail.com" -> "gmail.com"), ("adargah@ualberta.ca" -> "ualberta.ca"),
+Relationship: email to domain
+
+
+Data: ("2024/09/05" -> "1403/06/16"), ("1886/06/27" -> "1265/04/06"),
+Relationship: Gregorian date to Jalali (Solar Hijri) date
+
+
+Data: {examples}
+Relationship:

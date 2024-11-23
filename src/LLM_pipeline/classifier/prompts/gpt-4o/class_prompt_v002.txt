@@ -1,0 +1,31 @@
+Classify the following data transformations into one of the classes.
+Classes: [`String`, `Numbers`, `Algorithmic`, `General`]
+
+String: When The values on both sides have many common subsequences of text and can be transformed via string-based functions such as split and substring, etc.
+Numbers: When both side are a numeric value.
+Algorithmic: When the values on one or two sides are not in numbers or string classes and an algorithm can be used to transform them, For example Date conversions, Unicode conversions, etc.
+General: Anything that may need external knowledge and does not fit in the above classes.
+
+Examples:
+Data: ("Arash Nobari Dargahi" -> "a. n. dargahi"), ("Davood Rafiei" -> "d.rafiei"),
+Class: String
+
+
+Data: ("587-123-8541" -> "587"), ("800-250-6582" -> "800"),
+Class: String
+
+
+Data: ("582.1" -> "622"), ("200" -> "800"),
+Class: Numbers
+
+
+Data: ("2015/12/1" -> "1433/11/08"), ("2024/1/2" -> "1350/5/17"),
+Class: Algorithmic
+
+
+Data: ("John Steinbeck" -> "The Grapes of Wrath"), ("Thomas Pynchon" -> "Vineland"),
+Class: General
+
+
+Data: {examples}
+Class:

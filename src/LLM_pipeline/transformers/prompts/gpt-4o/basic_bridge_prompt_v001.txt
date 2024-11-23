@@ -1,0 +1,5 @@
+Transform the given value with respect to the formatting given in the examples. Only return the target value and nothing else.
+If you don't know the answer just return "None".
+
+{examples}
+{src_value} ->

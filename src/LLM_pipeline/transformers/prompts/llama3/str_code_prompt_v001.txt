@@ -1,0 +1,6 @@
+Please write a python function for transforming The given test cases.
+Avoid using any libraries that are not installed by default. Do not use nested functions and generate only a single function.
+The output should only include a python function with one string input where input and output are formatted like the given test cases. Do not include any comments in the function.
+
+Test cases:
+{examples}
