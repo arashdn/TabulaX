@@ -1,3 +1,5 @@
+import sys
+
 import numpy as np
 from scipy.optimize import curve_fit, OptimizeWarning
 from sklearn.metrics import mean_squared_error
@@ -16,7 +18,10 @@ def find_best_fit(x, y):
     popt_linear, _ = curve_fit(linear_model, x, y)
     popt_poly, _ = curve_fit(polynomial_model, x, y)
     popt_exp, _ = curve_fit(exponential_model, x, y, maxfev=10000)
-    popt_rat, _ = curve_fit(rational_model, x, y)
+    try:
+        popt_rat, _ = curve_fit(rational_model, x, y, maxfev=10000)
+    except RuntimeError:
+        popt_rat, _ = curve_fit(rational_model, x, y, maxfev=1000000)
 
     # Predict values and calculate MSE
     y_pred_linear = linear_model(x, *popt_linear)
@@ -26,7 +31,10 @@ def find_best_fit(x, y):
 
     mse_linear = mean_squared_error(y, y_pred_linear)
     mse_poly = mean_squared_error(y, y_pred_poly)
-    mse_exp = mean_squared_error(y, y_pred_exp)
+    try:
+        mse_exp = mean_squared_error(y, y_pred_exp)
+    except ValueError:
+        mse_exp = float("inf")
     mse_rat = mean_squared_error(y, y_pred_rat)
 
     # Find the best model
@@ -65,7 +73,11 @@ def parse_number(s):
     try:
         return int(s)
     except ValueError:
-        return float(s)
+        try:
+            return float(s.replace(",", ""))
+        except ValueError:
+            print(f"Cannot parse number: {s}", file=sys.stderr)
+            return float(0)
 
 
 def get_numeric_function(examples):

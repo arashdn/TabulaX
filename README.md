@@ -16,11 +16,16 @@ conda create -n tgen python=3.11
 conda activate tgen
 conda install pip
 pip install nltk==3.8.1
-pip install numpy==2.1.0
+pip install numpy==1.26.4
 pip install openai==1.35.7
 pip install scikit-learn==1.5.1
 pip install scipy==1.13.1
 pip install tqdm==4.66.4 # if you will use tqdm
+pip install numpy==1.26.4
+pip install pandas==2.2.3
+
+# requirements.txt created by: pip list --format=freeze > requirements.txt
+# environment.yml created by: conda env export | grep -v "^prefix: " > environment.yml
 ```
 
 
@@ -33,6 +38,7 @@ Two main directories are in the repo: `data`, and `src`.
 All datasets are included in this repo in `Datasets` directory. Each dataset contains several tables (each as a folder) and each table contains `source.csv`, `target.csv`, and `ground truth.csv`. The datasets available in this file are:
 - `AutoJoin`: The Web Tables (WT) dataset.
 - `FlashFill`: The Spreadsheet (SS) dataset.
+- `ALL_TDE`: The Table Transformation (TT) dataset.
 - `DataXFormer`: The Knowledge Based Web Tables (KBWT) dataset.
 
 ### src
@@ -50,7 +56,8 @@ The resources required for automatic input table classification.
 
 * `prompts/*`: Prompt templates for each classification model.
 * `classifierutil.py`: The library for general function required for classification.
-* `DFX_classes.csv`: Ground truth classes.
+* `DFX_classes.csv`: Ground truth classes for KBWT dataset.
+* `TDE_classes.csv`: Ground truth classes for TT dataset.
 * `report_metrics.py`: Helper functions to generate the classification performance at the end of classification are in this library.
 
 * `gpt_classifier.py`: Run this file to use GPT models for input classification. Some values may be edited inside the file.

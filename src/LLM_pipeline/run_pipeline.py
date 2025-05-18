@@ -30,8 +30,8 @@ import preprocessors
 BASE_PATH = pathlib.Path(__file__).absolute().parent.parent.parent.absolute()
 ED_CACHE_PATH = BASE_PATH / "cache/edit_distance/ed.pkl"
 
-
-MODEL_NAME = "gpt-4o-2024-05-13"  # ["gpt-4o-2024-05-13", "gpt-4o-mini-2024-07-18", "llama3.1-8b"]
+# Deepseek only supports general and basic types.
+MODEL_NAME = "gpt-4o-2024-05-13"  # ["gpt-4o-2024-05-13", "gpt-4o-mini-2024-07-18", "llama3.1-8b", "deepseek-chat"]
 PROMPT_VERSION = "v001"
 BASIC_PROMPT = False  # Ignore framework and directly prompt the LLM
 
@@ -39,14 +39,15 @@ BASIC_PROMPT = False  # Ignore framework and directly prompt the LLM
 EXAMPLE_SIZE = 5
 EXAMPLE_SIZE_TYPE = "fixed"
 MATCHING_TYPE = 'edit_dist'  # ["exact", "edit_dist"]
-CLASSIFICATION_TYPE = 'golden'  # ['golden', gpt_classifier']
+CLASSIFICATION_TYPE = 'golden'  # ['golden', gpt_classifier', 'all_string']
 
 TEST_ON_ALL_DATA = False
 
 
 # DS_PATH = str(BASE_PATH / "data/Datasets/AutoJoin")
 # DS_PATH = str(BASE_PATH / "data/Datasets/FlashFill")
-DS_PATH = str(BASE_PATH / "data/Datasets/DataXFormer")
+# DS_PATH = str(BASE_PATH / "data/Datasets/DataXFormer")
+DS_PATH = str(BASE_PATH / "data/Datasets/All_TDE")
 DS_NAME = pathlib.PurePath(DS_PATH).name
 
 class_str = "" if CLASSIFICATION_TYPE == "golden" else f"_{CLASSIFICATION_TYPE}"
@@ -92,6 +93,8 @@ def get_classes(method, tbl_name, ds_path):
         return get_gold_label(tbl_name, ds_path)
     elif method == "gpt_classifier":
         return get_gpt_label(tbl_name, ds_path)
+    elif method == "all_string":
+        return "String"
     else:
         raise NotImplementedError(f"Classification Method {method} not implemented")
 
@@ -187,10 +190,13 @@ def join(rows, transformation, matching_type):
             min_key = None
             for target in targets:
                 # val = "" if val is None else val
-                dist = abs(float(target) - val)
-                if dist < min_dist:
-                    min_dist = dist
-                    min_key = target
+                try:
+                    dist = abs(float(target) - val)
+                    if dist < min_dist:
+                        min_dist = dist
+                        min_key = target
+                except ValueError:
+                    dist = float("inf")
 
             res, pred = str(min_key), str(val)
 
@@ -285,7 +291,7 @@ def main():
             matching_type = "num_dist"
         elif cls == "Algorithmic":
             details, funcs_list = get_algorithmic_function(train, model_name=MODEL_NAME, prompt_version=PROMPT_VERSION)
-            matching_type = "exact"
+            # matching_type = "exact"
         elif cls == "String":
             details, funcs_list = get_string_function(train, model_name=MODEL_NAME, prompt_version=PROMPT_VERSION)
         else:
@@ -336,6 +342,11 @@ def main():
             print(f"Preprocessing details: {pprint.pformat(preprocess_details, indent=1, width=120)}", file=f2)
             print("\n\n===========\n\n", file=f2)
             print(f"Table (processed src, target, src): {pprint.pformat(tables[table], indent=1, width=120)}", file=f2)
+
+            print("\n\n===========\n\nPredictions:\n", file=f2)
+
+            for pred in predicts:
+                print(pred, file=f2)
 
         _save_ed_cache()
 

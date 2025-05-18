@@ -1,3 +1,4 @@
+import csv
 import os
 import random
 
@@ -32,8 +33,9 @@ def get_pairs_from_files(ds_path, tbl_names=[]):
 
         pairs = []
 
-        with open(ds_dir + "/ground truth.csv") as f:
-            titles = f.readline().strip().split(',')
+        with open(ds_dir + "/ground truth.csv", newline='') as f:
+            reader = csv.reader(f)
+            titles = next(reader)
 
             if not "source-" + src_col in titles:
                 print(ds_dir)
@@ -47,8 +49,7 @@ def get_pairs_from_files(ds_path, tbl_names=[]):
             if direction.lower() == "target":
                 src_idx, target_idx = target_idx, src_idx
 
-            for line in f.readlines():
-                items = line.strip().split(',')
+            for items in reader:
                 pairs.append((items[src_idx], items[target_idx]))
 
         res['inputs'][dir] = pairs

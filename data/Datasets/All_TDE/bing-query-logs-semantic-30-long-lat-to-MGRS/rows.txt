@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert lat long to MGRS  http://www.earthpoint.us/Convert.aspx

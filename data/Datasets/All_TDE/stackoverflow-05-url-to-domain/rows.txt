@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://http://stackoverflow.com/questions/13969214/how-to-strip-http-and-www-from-an-entered-domain-name-using-c-sharp

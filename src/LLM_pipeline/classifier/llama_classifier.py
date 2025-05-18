@@ -29,6 +29,7 @@ DS_PATHS = [
     str(BASE_PATH / "data/Datasets/DataXFormer"),
     str(BASE_PATH / "data/Datasets/AutoJoin"),
     str(BASE_PATH / "data/Datasets/FlashFill"),
+    str(BASE_PATH / "data/Datasets/All_TDE"),
     ]
 
 
@@ -88,11 +89,13 @@ def get_prediction(examples):
 
     respond = respond.split("Class:")[-1]
 
-    out = re.split('\s+', respond.replace("Class:", "").strip().replace("`", ""))[0]
+    out = re.split('\s+', respond.replace("Class:", "").strip().replace("`", "").replace("*", ""))[0]
     if out in ALLOWED_CLASSES:
         return out
     print(respond)
-    raise ValueError(f"Invalid out: {out}")
+    print(f"!!!!!!Wrong class: {out} === Returning String", file=sys.stderr)
+    return "String"
+    # raise ValueError(f"Invalid out: {out}")
 
 
 

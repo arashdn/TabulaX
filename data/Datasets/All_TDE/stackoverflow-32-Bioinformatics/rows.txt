@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://Bioinformatics http://stackoverflow.com/questions/8811335/algorithm-help-fast-algorithm-in-searching-for-a-string-with-its-partner

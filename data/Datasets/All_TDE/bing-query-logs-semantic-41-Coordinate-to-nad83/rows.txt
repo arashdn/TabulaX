@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert Geographic Coordinate to nad83   http://www.apsalin.com/nad-conversion.aspx

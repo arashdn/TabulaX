@@ -1,4 +1,4 @@
-
+lightning_logs
 
 openai.key*
 
@@ -14,6 +14,10 @@ cache/**
 cache_copy/**
 cache_copy*/**
 
+src/LLM_pipeline/baselines/ExplainDaV
+src/LLM_pipeline/baselines/ExplainDaV/**
+
+wikidata
 
 data/**
 !data/Datasets/
@@ -21,6 +25,8 @@ data/**
 data/Datasets/PaperExamples
 
 
+openai.key*
+deepseek.key*
 
 
 __pycache__

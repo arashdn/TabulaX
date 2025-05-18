@@ -13,6 +13,10 @@ CODE_PROMPT_CACHE_PATH = BASE_PATH / "cache/str_code_prompts"
 with open(BASE_PATH / 'openai.key', 'r') as f:
     API_KEY = f.read()
 
+with open(BASE_PATH / 'deepseek.key', 'r') as f:
+    DEEPSEEK_API_KEY = f.read()
+
+
 
 
 
@@ -29,6 +33,8 @@ def get_code(examples, model_name, prompt_version):
         mdl = "gpt-4o"
     if mdl == "llama3.1-8b":
         mdl = "llama3"
+    if mdl.startswith("deepseek"):
+        mdl = "deepseek"
 
     with open(CODE_BASE_PATH / f"transformers/prompts/{mdl}/str_code_prompt_{prompt_version}.txt") as f:
         pmpt = f.read()
@@ -54,6 +60,8 @@ def get_code(examples, model_name, prompt_version):
                 base_url="http://localhost:8000/v1",
             )
             api_model_name = "meta-llama/Llama-3.1-8B-Instruct"
+        elif model_name.startswith("deepseek"):
+            client = openai.OpenAI(api_key=DEEPSEEK_API_KEY, base_url="https://api.deepseek.com/v1")
         else:
             raise NotImplementedError(f"Model {model_name} not implemented")
 

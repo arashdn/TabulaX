@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert slope to degrees http://www.calcunation.com/calculators/general%20math/geometry/slope-percent-conversion.php?perc=24&calc=yes&Calculate=Convert+to+Degrees

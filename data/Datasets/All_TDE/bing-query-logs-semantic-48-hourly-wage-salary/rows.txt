@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert hourly wage to salary  http://us.thesalarycalculator.co.uk/hourly.php

@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert polar to rectangular  http://www.daycounter.com/Calculators/Polar-To-Rectangular-Calculator.phtml

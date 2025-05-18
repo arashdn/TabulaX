@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://convert rgb to hex  http://www.javascripter.net/faq/rgbtohex.htm

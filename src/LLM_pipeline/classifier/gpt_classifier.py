@@ -38,6 +38,7 @@ DS_PATHS = [
     str(BASE_PATH / "data/Datasets/DataXFormer"),
     str(BASE_PATH / "data/Datasets/AutoJoin"),
     str(BASE_PATH / "data/Datasets/FlashFill"),
+    str(BASE_PATH / "data/Datasets/All_TDE"),
     ]
 
 

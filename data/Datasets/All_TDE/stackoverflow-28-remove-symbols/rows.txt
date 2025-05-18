@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://Most efficient way to remove special characters from string, only allow A-Z a-Z 0-9

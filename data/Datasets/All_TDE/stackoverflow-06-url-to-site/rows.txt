@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://Extract something between the first dot and the last dot, not so good an example, don't know what it tries to do

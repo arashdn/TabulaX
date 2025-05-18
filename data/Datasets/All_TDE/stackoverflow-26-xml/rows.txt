@@ -1,0 +1,3 @@
+Value:Value
+source
+Comment://Filter out XML attributeshttp://stackoverflow.com/questions/7122109/codemirror-2-how-to-filter-out-xml-attributes

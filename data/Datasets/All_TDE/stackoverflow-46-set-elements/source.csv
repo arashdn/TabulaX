@@ -1,0 +1,5 @@
+Value
+"{{aaa, bbb}, {ccc, ddd}, {eee, fff}}"
+"{{x, y}, {z, zz}}"
+"{{a}, {bb}, {ccc, ddd, eee, fff}}"
+"{{p, q}, {r, s, t}, {u, v, w}}"
