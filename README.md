@@ -4,7 +4,7 @@ This repository contains resources developed within the following paper:
 
     A. Dargahi Nobari, and D. Rafiei. "TabulaX: Leveraging Large Language Models for Multi-Class Table Transformations", VLDB, 2025
 	
-You may check the [paper](#) ([PDF](https://arxiv.org/abs/2411.17110)) for more information.
+You may check the [paper](https://doi.org/10.14778/3749646.3749657) ([PDF](https://arxiv.org/abs/2411.17110)) for more information.
 
 
 ## Requirements
