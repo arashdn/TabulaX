@@ -113,4 +113,24 @@ Some values may be edited inside the file.
 ## Citation
 
 Please cite the paper, If you used the codes in this repository.
+```
+@article{tabulax,
+author = {Nobari, Arash Dargahi and Rafiei, Davood},
+title = {TabulaX: Leveraging Large Language Models for Multi-Class Table Transformations},
+year = {2025},
+issue_date = {July 2025},
+publisher = {VLDB Endowment},
+volume = {18},
+number = {11},
+issn = {2150-8097},
+url = {https://doi.org/10.14778/3749646.3749657},
+doi = {10.14778/3749646.3749657},
+abstract = {The integration of tabular data from diverse sources is often hindered by inconsistencies in formatting and representation, posing significant challenges for data analysts and personal digital assistants. Existing methods for automating tabular data transformations are limited in scope, often focusing on specific types of transformations or lacking interpretability. In this paper, we introduce TabulaX, a novel framework that leverages Large Language Models (LLMs) for multi-class column-level tabular transformations. TabulaX first classifies input columns into four transformation types—string-based, numerical, algorithmic, and general—and then applies tailored methods to generate human-interpretable transformation functions, such as numeric formulas or programming code. This approach enhances transparency and allows users to understand and modify the mappings. Through extensive experiments on real-world datasets from various domains, we demonstrate that TabulaX outperforms existing state-of-the-art approaches in terms of accuracy, supports a broader class of transformations, and generates interpretable transformations that can be efficiently applied.},
+journal = {Proc. VLDB Endow.},
+month = sep,
+pages = {3826–3839},
+numpages = {14},
+keywords = {large language models, heterogeneous table join, data integration, data transformation, data cleaning and transformation}
+}
+```
 
